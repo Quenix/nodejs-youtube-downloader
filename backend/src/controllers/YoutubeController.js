@@ -1,7 +1,7 @@
 const ffmpeg = require('ffmpeg-static');
 
 module.exports = {
-    async index(request, response) {
+    async store(request, response) {
         
         const url = request.body.url;
         const helperUrl = url.split("watch?v=");
