@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const DevController = require('./controllers/DevController');
+const YoutubeController = require('./controllers/YoutubeController');
 
 const routes = Router();
 routes.post('/download', YoutubeController.index);
