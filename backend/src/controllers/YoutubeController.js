@@ -2,8 +2,8 @@ const ffmpeg = require('ffmpeg-static');
 
 module.exports = {
     async index(request, response) {
-
-        response.download("./downloads/Katy-Perry  Roar Official.mp3");
+        const { file } = response.query;
+        response.download(file);
 
     },
     async store(request, response) {

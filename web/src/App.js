@@ -13,6 +13,10 @@ function App() {
     const response = await api.post('/store', {"url": url});
     console.log(response.data);
 
+    //TODO download link
+    const filename = JSON.parse(response.data);
+    console.log(`http://localhost:3334/download?file="${filename.file}"`);
+
   }
 
   return (
