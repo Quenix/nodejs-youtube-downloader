@@ -10,7 +10,7 @@ function App() {
 
   async function downloadVideo() {
 
-    const response = await api.post('/download', {"url": url});
+    const response = await api.post('/store', {"url": url});
     console.log(response.data);
 
   }
