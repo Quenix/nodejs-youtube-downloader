@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import api from './services/api';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [ url, setUrl ] = useState('');
@@ -21,7 +23,10 @@ function App() {
           Download YouTube videos
         </p>
         <input value={url} onChange={ (e) => {{ setUrl(e.target.value )}}}></input>
-        <button onClick={downloadVideo}>Download</button>
+        <div className="download-button">
+          <Button variant="danger" onClick={downloadVideo}>Download</Button>
+        </div>
+        
       </header>
     </div>
   );
