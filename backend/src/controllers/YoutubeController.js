@@ -1,8 +1,13 @@
 const ffmpeg = require('ffmpeg-static');
 
 module.exports = {
-    async index(requrest, response) {
+    async index(request, response) {
         
+        const url = request.body.url;
+        const helperUrl = url.split("watch?v=");
+        const video = helperUrl[1];
+        
+        let responseMessage = '';
         var YoutubeMp3Downloader = require("youtube-mp3-downloader");
  
         //Configure YoutubeMp3Downloader with your settings
@@ -15,14 +20,17 @@ module.exports = {
         });
         
         //Download video and save as MP3 file
-        YD.download("Vhd6Kc4TZls");
+        YD.download(video);
         
         YD.on("finished", function(err, data) {
             console.log(JSON.stringify(data));
+            responseMessage = JSON.stringify(data);
+            return response.json(responseMessage);
         });
         
         YD.on("error", function(error) {
             console.log(error);
+            return response.json(error);
         });
         
         YD.on("progress", function(progress) {
